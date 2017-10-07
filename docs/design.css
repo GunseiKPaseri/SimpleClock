@@ -1,0 +1,115 @@
+/* Webfont */
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Stalinist+One');
+/* font-family: 'Stalinist One', cursive; */
+
+
+
+
+
+body{
+	background-color:#000;
+	margin:0;
+	width:100vw;
+	height:100vh;
+  position: relative;
+}
+body #dc{
+	width:75%;
+	color:#fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 90vw;
+  height: 40vw;
+  text-align:center;
+	font-size: 7vw;
+	user-select:none;
+}
+
+
+.Hour,.Minute{
+	font-size:200%;
+}
+
+.fonta{
+	font-family: 'Audiowide', cursive;
+}
+.fontb{
+	font-family: 'Stalinist One', cursive;
+}
+
+@media (max-height:350px){
+body #dc{
+	height:80vh;
+	margin:10vh auto;
+}
+}
+
+#fontselect{
+	list-style:none;
+	color:#fff;
+	bottom:0;left:0;
+	position:fixed;
+	margin:0;padding:0;
+}
+#fontselect li{
+	width:100px;
+	height:40px;
+	display:inline-block;
+	color:#ccc;
+	background-color:rgba(255,255,255,0.1);
+	border-right:1px solid #222;
+	cursor:pointer;
+	text-align:center;
+}
+#fontselect li.selected{
+	border-bottom:2px solid #ccc;
+}
+
+
+#op{
+	bottom:0;right:0;
+	padding:2px;
+	position:fixed;
+	background-color:rgba(255,255,255,0.1);
+	color:#fff;
+}
+#op >span{
+	position:relative;
+}
+
+input[type="checkbox"]{
+	display:none;
+}
+input[type="checkbox"] + label{
+	padding-left:20px;
+}
+input[type="checkbox"] + label::before{
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom:0;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #999;
+	border-radius: 4px;
+	
+}
+input[type="checkbox"]:checked + label::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
+  width: 7px;
+  height: 14px;
+  transform: rotate(40deg);
+  border-bottom: 3px solid #ccc;
+border-right: 3px solid #ccc;
+}
+
