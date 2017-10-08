@@ -1,4 +1,7 @@
 "use strict";
+
+
+
 function timer(){
 	let date=new Date();
 	let dates="";
@@ -39,6 +42,19 @@ function fillZero(s,n){
 
 }
 $(document).ready(function(){
+
+let SS_bg="",SS_md="";
+for(let i=0;i<document.styleSheets.length;i++){
+	if(document.styleSheets[i].href!==null){
+		if(document.styleSheets[i].href.match(/backgroundcolor\.css/)){
+			SS_bg=document.styleSheets[i];
+		}else if(document.styleSheets[i].href.match(/maincolor\.css/)){
+			SS_md=document.styleSheets[i];
+		}
+	}
+}
+console
+
 setInterval(timer,100)
 
 
@@ -66,17 +82,17 @@ $('input[type="color"]').on("change",function(){
 	
 	if(name=="opcmc"){
 		//maincolor
-		colorChange(document.styleSheets[2],color);
+		colorChange(SS_md,color);
 	}else if(name=="opcbg"){
 		//background-color
-		colorChange(document.styleSheets[1],color);
+		colorChange(SS_bg,color);
 	}
 	
 	return;
 });
 
-colorChange(document.styleSheets[2],$("input[name='opcmc']").val());
-colorChange(document.styleSheets[1],$("input[name='opcbg']").val());
+colorChange(SS_md,$("input[name='opcmc']").val());
+colorChange(SS_bg,$("input[name='opcbg']").val());
 });
 
 function colorChange(stylesheet,c){
