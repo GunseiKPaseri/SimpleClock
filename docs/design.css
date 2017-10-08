@@ -1,5 +1,5 @@
 /* Webfont */
-@import url('https://fonts.googleapis.com/css?family=Audiowide|Stalinist+One');
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Stalinist+One|Dosis');
 /* font-family: 'Stalinist One', cursive; */
 
 
@@ -7,26 +7,29 @@
 
 
 body{
-	background-color:#000;
 	margin:0;
 	width:100vw;
 	height:100vh;
-  position: relative;
+	position: relative;
 }
 body #dc{
 	width:75%;
-	color:#fff;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 90vw;
-  height: 40vw;
-  text-align:center;
+	white-space: nowrap;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 100vw;
+	height: 40vw;
+	text-align:center;
 	font-size: 7vw;
+	cursor:default;
 	user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
 }
 
 
@@ -40,6 +43,9 @@ body #dc{
 .fontb{
 	font-family: 'Stalinist One', cursive;
 }
+.fontc{
+	font-family: 'Dosis', sans-serif;
+}
 
 @media (max-height:350px){
 body #dc{
@@ -48,39 +54,141 @@ body #dc{
 }
 }
 
-#fontselect{
+nav *{
+	transition:all 0.5s ease;
+	user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	cursor:default;
+}
+
+nav #fontselect{
 	list-style:none;
-	color:#fff;
-	bottom:0;left:0;
+	top:0;left:0;
 	position:fixed;
 	margin:0;padding:0;
 }
-#fontselect li{
-	width:100px;
+nav.hide #fontselect{
+	top:-65px;
+}
+nav #fontselect div{
+	position:absolute;
+	text-align:center;
+	bottom:-25px;
+	width:100px;height:25px;
+}
+nav #fontselect li{
+	box-sizing:border-box;
+	width:25px;
 	height:40px;
 	display:inline-block;
-	color:#ccc;
-	background-color:rgba(255,255,255,0.1);
-	border-right:1px solid #222;
+	border-right:1px solid;
+	border-top:2px solid;
 	cursor:pointer;
 	text-align:center;
+	transition:0.5s ease;
 }
-#fontselect li.selected{
-	border-bottom:2px solid #ccc;
+nav #fontselect li.selected{
+	width:50px;
 }
 
 
-#op{
+nav #op{
 	bottom:0;right:0;
 	padding:2px;
 	position:fixed;
-	background-color:rgba(255,255,255,0.1);
-	color:#fff;
 }
-#op >span{
+nav #op >span{
 	position:relative;
 }
+nav.hide #op{
+	bottom:-100px;
+}
 
+nav #hider{
+	width:20vw;height:60px;
+	position:fixed;
+	margin:0 auto;
+	right:0;left:0;
+	bottom:0;
+	cursor:pointer;
+}
+nav #hider span:first-child::before,
+nav #hider span:first-child::after,
+nav #hider span:last-child::before,
+nav #hider span:last-child::after{
+	content:"";
+	box-sizing:border-box;
+	width:20px;height:20px;
+	transform: rotate(45deg);
+	position:absolute;
+	margin:0 auto;
+	transition:all 0.3s ease;
+	cursor:pointer;
+	border:0px solid;
+}
+nav #hider span:first-child::before{
+	bottom:20px;left:0;right:0;
+	border-bottom-width: 3px;
+}
+nav #hider span:first-child::after{
+	bottom:8px;left:0;right:0;
+	border-bottom-width: 3px;
+}
+nav #hider span:last-child::before{
+	bottom:20px;left:0;right:0;
+	border-right-width: 3px;
+}
+nav #hider span:last-child::after{
+	bottom:8px;left:0;right:0;
+	border-right-width: 3px;
+
+}
+nav #hider:hover span:first-child::before,
+nav #hider:hover span:last-child::before{
+	bottom:15px;
+}
+nav #hider:hover span:first-child::after,
+nav #hider:hover span:last-child::after{
+	bottom:5px;
+}
+nav.hide #hider span:first-child::before,
+nav.hide #hider span:first-child::after{
+	left:25px;
+}
+nav.hide #hider span:last-child::before,
+nav.hide #hider span:last-child::after{
+	right:25px;
+}
+nav.hide #hider span:first-child::before,
+nav.hide #hider span:last-child::before{
+	bottom:5px;
+}
+nav.hide #hider span:first-child::after,
+nav.hide #hider span:last-child::after{
+	bottom:15px;
+}
+nav.hide #hider:hover span:first-child::before,
+nav.hide #hider:hover span:last-child::before{
+	bottom:10px;
+}
+nav.hide #hider:hover span:first-child::after,
+nav.hide #hider:hover span:last-child::after{
+	bottom:20px;
+}
+
+
+
+
+
+label,input{
+	cursor:pointer;
+}
+input:disabled,input:disabled + label{
+	text-decoration:line-through;
+	cursor:default;
+}
 input[type="checkbox"]{
 	display:none;
 }
@@ -96,20 +204,28 @@ input[type="checkbox"] + label::before{
 	left: 0;
 	width: 15px;
 	height: 15px;
-	border: 1px solid #999;
+	border: 1px solid;
 	border-radius: 4px;
 	
 }
 input[type="checkbox"]:checked + label::after{
-  content: "";
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: 5px;
-  width: 7px;
-  height: 14px;
-  transform: rotate(40deg);
-  border-bottom: 3px solid #ccc;
-border-right: 3px solid #ccc;
+	content: "";
+	display: block;
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	width: 7px;
+	height: 14px;
+	transform: rotate(40deg);
+	border-bottom: 3px solid;
+	border-right: 3px solid;
 }
-
+input[type="color"]{
+	width:45px;height:20px;
+	background-color:rgba(0,0,0,1);
+	position:relative;
+	bottom:-2px;
+	z-index:5;
+	border:none;
+}
+/* aboutcolor */

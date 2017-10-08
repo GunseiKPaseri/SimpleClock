@@ -4,7 +4,14 @@
 	<meta charset="UTF-8" />
 	<script src="./jquery.min.js"></script>
 	<script src="./clock.js?"></script>
+	<meta name="keywords" content="時計">
+	<meta name="description" content="シンプルな動作のデジタル時計です。"> 
+	<meta name="author" content="GunseiKPaseri">
+	<meta name="application-name" content="SimpleClock">
+	<meta name="viewport" content="width=360,initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="./design.css" />
+	<link rel="stylesheet" type="text/css" href="./backgroundcolor.css" />
+	<link rel="stylesheet" type="text/css" href="./maincolor.css" />
 	<title>SimpleClock</title>
 </head>
 <body>
@@ -13,11 +20,27 @@
 <span></span>
 </div>
 
-<ul id="fontselect"><li data-f="fonta" class="selected">FontA</li><li data-f="fontb">FontB</li></ul>
+<nav>
+<ul id="fontselect"><div>Font</div><li data-f="fonta" class="selected">A</li><li data-f="fontb">B</li><li data-f="fontc">C</li></ul>
 <div id="op">
-<span><input id="opisjy" type="checkbox" name="opisjy"><label for="opisjy">Japanese Year</label></span><br>
-<span><input id="opishs" type="checkbox" name="opishs"><label for="opishs">Hide Seconds</label></span>
+<span><input id="opisjy" type="checkbox" name="opisjy"><label for="opisjy">Displayed by the era of Japan</label></span><br>
+<span><input id="opishs" type="checkbox" name="opishs"><label for="opishs">Hide Seconds</label></span><br>
+<span><input type="color" name="opcmc" value="#f9f9f9" list="color-list"><label for="opcmc">Main Color</label></span><br>
+<span><input type="color" name="opcbg" value="#000000" list="color-list"><label for="opcbg">Background Color</label></span>
+<datalist id="color-list">
+	<option value="#111111"></option>
+	<option value="#ff1111"></option>
+	<option value="#118011"></option>
+	<option value="#1111ff"></option>
+	<option value="#ffff11"></option>
+	<option value="#f9f9f9"></option>
+</datalist>
 </div>
+<div id="hider">
+<span></span>
+<span></span>
+</div>
+</nav>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+"use strict";
 function timer(){
 	let date=new Date();
 	let dates="";
@@ -48,4 +49,45 @@ $('#fontselect').on("click","li",function(){
 	$('#dc').removeClass().addClass($(this).attr("data-f"))
 	return;
 });
+
+$('#hider').on("click",function(){
+	if($(this).hasClass("checked")){
+		$(this).removeClass("checked");
+		$("nav").removeClass("hide");
+	}else{
+		$(this).addClass("checked");
+		$("nav").addClass("hide");
+	}
+	return;
 });
+
+$('input[type="color"]').on("change",function(){
+	let name=$(this).attr("name"),color=$(this).val();
+	
+	if(name=="opcmc"){
+		//maincolor
+		colorChange(document.styleSheets[2],color);
+	}else if(name=="opcbg"){
+		//background-color
+		colorChange(document.styleSheets[1],color);
+	}
+	
+	return;
+});
+
+colorChange(document.styleSheets[2],$("input[name='opcmc']").val());
+colorChange(document.styleSheets[1],$("input[name='opcbg']").val());
+});
+
+function colorChange(stylesheet,c){
+console.log(stylesheet)
+	let color=c.replace(/#(..)(..)(..)/,function(str,r,g,b){return ""+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)});
+	let v=stylesheet.cssRules.length;
+	for(let i=0;i<v;i++){
+		let activerule=stylesheet.cssRules[i];
+		for(let s of activerule.style){
+			activerule.style[s]=activerule.style[s].replace(/rgba\(\d+,\s*\d+,\s*\d+,/g,"rgba("+color+",").replace(/rgb\(\d+,\s*\d+,\s*\d+\)/g,"rgb("+color+")");
+			console.log(s,activerule.style[s])
+		}
+	}
+}

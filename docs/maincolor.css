@@ -1,0 +1,43 @@
+body #dc,
+nav #fontselect,
+nav #op,
+nav #fontselect li{
+	color:rgba(255,255,255,0.95);
+}
+nav #fontselect li{
+	border-top-color:rgba(255,255,255,0);
+	border-right-color:rgba(255,255,255,0.2);
+}
+nav #fontselect li.selected{
+	border-top-color:rgba(255,255,255,1);
+}
+nav #op,
+nav #fontselect li,
+nav #fontselect div{
+	background-color:rgba(255,255,255,0.15);
+}
+nav #hider span:first-child::before,
+nav #hider span:first-child::after,
+nav #hider span:last-child::before,
+nav #hider span:last-child::after,
+nav.hide #hider:hover span:first-child::before,
+nav.hide #hider:hover span:first-child::after,
+nav.hide #hider:hover span:last-child::before,
+nav.hide #hider:hover span:last-child::after{
+	border-color:rgba(255,255,255,0.8);
+}
+input[type="checkbox"]:checked + label::after{
+	border-color:rgba(255,255,255,0.8);
+}
+input[type="checkbox"] + label::before{
+	border-color:rgba(0,0,0,0.8);
+}
+nav.hide #hider span:first-child::before,
+nav.hide #hider span:first-child::after,
+nav.hide #hider span:last-child::before,
+nav.hide #hider span:last-child::after{
+	border-color:rgba(255,255,255,0.1);
+}
+input[type="color"]{
+	color:rgba(255,255,255,0.5);
+}
