@@ -31,7 +31,7 @@ function timer(){
 		dates+="<span class='Year'>"+fillZero(year,4)+"</span>"
 	}
 	//Month
-	dates+="/<span class='Month'>"+fillZero(date.getMonth(),2)+"</span>/"
+	dates+="/<span class='Month'>"+fillZero(date.getMonth()+1,2)+"</span>/"
 	//Day
 	dates+="<span class='Date'>"+fillZero(date.getDate(),2)+"</span>"
 	
