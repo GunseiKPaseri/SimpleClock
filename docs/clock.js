@@ -19,7 +19,7 @@ function timer(){
 	
 	//Year
 	let year=date.getFullYear();
-	if($("#opisjy").prop("checked")){
+	if($("#opy").val()=="EOJ"){
 		let jy;
 		if(year<2019){
 			dates+="<span class='Year'>H"+fillZero(year-1988,2)+"</span>"
