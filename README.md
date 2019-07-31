@@ -2,6 +2,8 @@
 俺が使いたい時計を作った。それだけです。  
 最大化して使うことを想定して作成
 
+web展開：https://gunseipaseri.github.io/SimpleClock/
+
 ## ライセンス
 MIT
 jQuery
