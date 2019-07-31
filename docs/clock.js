@@ -37,14 +37,14 @@ function timer(){
 	
 	$("#dc").children("span").html(dates);
 }
-/* ????????? */
+/* ゼロ埋め関数の実装 */
 function fillZero(s,n){
 	return ((new Array(n)).join("0")+s).slice(-n)
 }
 
 $(document).ready(function(){
 
-let SS_bg="",SS_md="";/* ?????? */
+let SS_bg="",SS_md="";/* 色の保存関数 */
 for(let i=0;i<document.styleSheets.length;i++){
 	if(document.styleSheets[i].href!==null){
 		if(document.styleSheets[i].href.match(/backgroundcolor\.css/)){
@@ -54,11 +54,11 @@ for(let i=0;i<document.styleSheets.length;i++){
 		}
 	}
 }
-/* ???? */
+/* 時刻更新 */
 setInterval(timer,100)
 
 
-/* ???????? */
+/* フォント変更検出 */
 $('#fontselect').on("click","li",function(){
 	$('#fontselect').children().removeClass("selected");
 	$(this).addClass("selected");
@@ -66,7 +66,7 @@ $('#fontselect').on("click","li",function(){
 	return;
 });
 
-/* ?? */
+/* 隠す */
 $('#hider').on("click",function(){
 	if($(this).hasClass("checked")){
 		$(this).removeClass("checked");
@@ -78,7 +78,7 @@ $('#hider').on("click",function(){
 	return;
 });
 
-/* ???????? */
+/* 色設定の変更検出 */
 $('input[type="color"]').on("change",function(){
 	let name=$(this).attr("name"),color=$(this).val();
 	
@@ -97,7 +97,7 @@ colorChange(SS_md,$("input[name='opcmc']").val());
 colorChange(SS_bg,$("input[name='opcbg']").val());
 });
 
-/* ??? */
+/* 色変更 */
 function colorChange(stylesheet,c){
 	let color=c.replace(/#(..)(..)(..)/,function(str,r,g,b){return ""+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)});
 	let v=stylesheet.cssRules.length;
