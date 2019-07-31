@@ -24,7 +24,7 @@ function timer(){
 		if(year<2019){
 			dates+="<span class='Year'>H"+fillZero(year-1988,2)+"</span>"
 		}else{
-			dates+="<span class='Year'>N"+fillZero(year-2018,2)+"</span>"
+			dates+="<span class='Year'>R"+fillZero(year-2018,2)+"</span>"
 		}
 		
 	}else{
