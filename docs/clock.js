@@ -37,13 +37,14 @@ function timer(){
 	
 	$("#dc").children("span").html(dates);
 }
+/* ????????? */
 function fillZero(s,n){
 	return ((new Array(n)).join("0")+s).slice(-n)
-
 }
+
 $(document).ready(function(){
 
-let SS_bg="",SS_md="";
+let SS_bg="",SS_md="";/* ???? */
 for(let i=0;i<document.styleSheets.length;i++){
 	if(document.styleSheets[i].href!==null){
 		if(document.styleSheets[i].href.match(/backgroundcolor\.css/)){
@@ -53,11 +54,11 @@ for(let i=0;i<document.styleSheets.length;i++){
 		}
 	}
 }
-
+/* ???? */
 setInterval(timer,100)
 
 
-
+/* ???????? */
 $('#fontselect').on("click","li",function(){
 	$('#fontselect').children().removeClass("selected");
 	$(this).addClass("selected");
@@ -65,6 +66,7 @@ $('#fontselect').on("click","li",function(){
 	return;
 });
 
+/* ?? */
 $('#hider').on("click",function(){
 	if($(this).hasClass("checked")){
 		$(this).removeClass("checked");
@@ -76,6 +78,7 @@ $('#hider').on("click",function(){
 	return;
 });
 
+/* ???????? */
 $('input[type="color"]').on("change",function(){
 	let name=$(this).attr("name"),color=$(this).val();
 	
@@ -94,8 +97,8 @@ colorChange(SS_md,$("input[name='opcmc']").val());
 colorChange(SS_bg,$("input[name='opcbg']").val());
 });
 
+/* ??? */
 function colorChange(stylesheet,c){
-console.log(stylesheet)
 	let color=c.replace(/#(..)(..)(..)/,function(str,r,g,b){return ""+parseInt(r,16)+","+parseInt(g,16)+","+parseInt(b,16)});
 	let v=stylesheet.cssRules.length;
 	for(let i=0;i<v;i++){
