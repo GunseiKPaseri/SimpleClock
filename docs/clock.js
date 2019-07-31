@@ -44,7 +44,7 @@ function fillZero(s,n){
 
 $(document).ready(function(){
 
-let SS_bg="",SS_md="";/* ???? */
+let SS_bg="",SS_md="";/* ?????? */
 for(let i=0;i<document.styleSheets.length;i++){
 	if(document.styleSheets[i].href!==null){
 		if(document.styleSheets[i].href.match(/backgroundcolor\.css/)){
