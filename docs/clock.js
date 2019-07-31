@@ -53,7 +53,6 @@ for(let i=0;i<document.styleSheets.length;i++){
 		}
 	}
 }
-console
 
 setInterval(timer,100)
 
