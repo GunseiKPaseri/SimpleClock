@@ -1,7 +1,8 @@
 "use strict";
 
+let context,piNode,poonNode;
 
-
+let nowSec=0;
 function timer(){
 	let date=new Date();
 	let dates="";
@@ -17,6 +18,25 @@ function timer(){
 	}
 	dates+="<br>"
 	
+	if($("#opisJIHO").prop("checked") && nowSec != date.getSeconds()){
+		if(date.getMinutes()%10==9 && (57<=date.getSeconds() && date.getSeconds()<=59)){
+			/* PI */
+			piNode = new OscillatorNode(context);
+			piNode.connect(context.destination);
+			piNode.frequency.value=440;
+			piNode.start();
+			piNode.stop(context.currentTime + 0.3);
+		}else if(date.getMinutes()%10==0 && date.getSeconds()==0){
+			/* POOON */
+			poonNode = new OscillatorNode(context);
+			poonNode.connect(context.destination);
+			poonNode.frequency.value=880;
+			poonNode.start();
+			poonNode.stop(context.currentTime + 2);
+		}	
+		nowSec=date.getSeconds();
+	}
+
 	//Year
 	let year=date.getFullYear();
 	if($("#opy").val()=="EOJ"){
@@ -44,6 +64,13 @@ function fillZero(s,n){
 
 $(document).ready(function(){
 
+	try {
+		// Fix up for prefixing
+		window.AudioContext = window.AudioContext||window.webkitAudioContext;
+		context = new AudioContext();
+	} catch(e) {
+		alert('Web Audio API is not supported in this browser');
+	}
 let SS_bg="",SS_md="";/* 色の保存関数 */
 for(let i=0;i<document.styleSheets.length;i++){
 	if(document.styleSheets[i].href!==null){

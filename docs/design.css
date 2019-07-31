@@ -110,7 +110,7 @@ nav #op >span{
 	position:relative;
 }
 nav.hide #op{
-	bottom:-150px;
+	bottom:-300px;
 }
 
 nav #hider{
